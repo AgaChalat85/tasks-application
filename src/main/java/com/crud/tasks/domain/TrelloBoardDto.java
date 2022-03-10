@@ -8,11 +8,11 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TrelloBoardDto {
 
-    @JsonProperty("name")
-    private String name;
-
     @JsonProperty("id")
     private String id;
+
+    @JsonProperty("name")
+    private String name;
 
     @JsonProperty("lists")
     private List<TrelloListDto> lists;
@@ -21,9 +21,10 @@ public class TrelloBoardDto {
 
     }
 
-    public TrelloBoardDto(String name, String id) {
-        this.name = name;
+    public TrelloBoardDto(String id, String name, List<TrelloListDto> lists) {
         this.id = id;
+        this.name = name;
+        this.lists = lists;
     }
 
     public String getName() {
