@@ -1,8 +1,6 @@
 package com.crud.tasks.service;
 
 import com.crud.tasks.domain.Mail;
-import com.crud.tasks.trello.client.TrelloClient;
-import org.apache.logging.log4j.util.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.mail.MailException;
@@ -10,7 +8,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import static java.util.Optional.ofNullable;
 
 @Service
 public class SimpleEmailService {
@@ -39,10 +37,7 @@ public class SimpleEmailService {
         mailMessage.setTo(mail.getMailTo());
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mail.getMessage());
-        Optional<String> toCC = Optional.ofNullable(mail.getToCC());
-         if(toCC.isPresent()) {
-             mailMessage.setCc(mail.getToCC());
-         }
+        ofNullable(mail.getToCC()).ifPresent(m -> mailMessage.setCc(mail.getToCC()));
         return mailMessage;
     }
 }
