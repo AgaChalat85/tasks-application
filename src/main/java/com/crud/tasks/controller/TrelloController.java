@@ -7,6 +7,7 @@ import com.crud.tasks.trello.facade.TrelloFacade;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 
 
@@ -17,6 +18,9 @@ public class TrelloController {
 
     private TrelloFacade trelloFacade;
 
+    public TrelloController(TrelloFacade trelloFacade) {
+        this.trelloFacade = trelloFacade;
+    }
 
     @GetMapping("boards")
     public ResponseEntity<List<TrelloBoardDto>> getTrelloBoards() {
@@ -28,5 +32,5 @@ public class TrelloController {
         return ResponseEntity.ok(trelloFacade.createCard(trelloCardDto));
     }
 
-}
 
+}
