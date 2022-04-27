@@ -31,6 +31,4 @@ public class TrelloController {
     public ResponseEntity<CreatedTrelloCardDto> createTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
         return ResponseEntity.ok(trelloFacade.createCard(trelloCardDto));
     }
-
-
 }

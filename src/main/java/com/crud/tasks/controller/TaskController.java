@@ -13,7 +13,6 @@ import java.util.List;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/v1/tasks")
-
 public class TaskController {
 
     private final DbService service;
