@@ -17,7 +17,7 @@ Project is created with:
 * Gradle
 
 ## To do:
-*fix e-mail sending
-*deploy application on AWS
+* fix e-mail sending
+* deploy application on AWS
 
 
